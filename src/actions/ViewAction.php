@@ -1,12 +1,12 @@
 <?php
 
-namespace trntv\filekit\actions;
+namespace grandmasterx\filekit\actions;
 
 use yii\web\HttpException;
 
 /**
  * Class ViewAction
- * @package trntv\filekit\actions
+ * @package grandmasterx\filekit\actions
  * @author Eugene Terentev <eugene@terentev.net>
  */
 class ViewAction extends BaseAction

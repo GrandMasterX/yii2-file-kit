@@ -1,12 +1,12 @@
 {
-    "name": "trntv/yii2-file-kit",
+    "name": "grandmasterx/yii2-file-kit",
     "description": "Yii2 file upload and storage kit",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "Eugene Terentev",
-            "email": "eugene@terentev.net"
+            "name": "Sosiedka Taras",
+            "email": "zgrandmasterz@gmail.com"
         }
     ],
     "minimum-stability": "dev",
@@ -21,7 +21,7 @@
         "creocoder/yii2-flysystem": "~0.8"
     },
     "autoload": {
-        "psr-4": { "trntv\\filekit\\": "src/" }
+        "psr-4": { "grandmasterx\\filekit\\": "src/" }
     },
     "extra":{
         "asset-installer-paths": {

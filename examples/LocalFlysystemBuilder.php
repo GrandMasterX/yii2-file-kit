@@ -9,7 +9,7 @@ use yii\base\Object;
  * @author Eugene Terentev <eugene@terentev.net>*
  *
  */
-class LocalFilesystemBuilder extends Object implements \trntv\filekit\filesystem\FilesystemBuilderInterface
+class LocalFilesystemBuilder extends Object implements \grandmasterx\filekit\filesystem\FilesystemBuilderInterface
 {
     /**
      * @var
