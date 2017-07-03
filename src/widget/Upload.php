@@ -72,8 +72,7 @@ class Upload extends InputWidget
     /**
      * @throws \yii\base\InvalidConfigException
      */
-    public function init()
-    {
+    public function init() {
         parent::init();
 
         $this->registerMessages();
@@ -100,25 +99,27 @@ class Upload extends InputWidget
 
         $this->clientOptions = ArrayHelper::merge(
             [
-                'url' => Url::to($this->url),
-                'multiple' => $this->multiple,
-                'sortable' => $this->sortable,
-                'maxNumberOfFiles' => $this->maxNumberOfFiles,
-                'maxFileSize' => $this->maxFileSize,
-                'minFileSize' => $this->minFileSize,
-                'acceptFileTypes' => $this->acceptFileTypes,
-                'files' => $this->files,
-                'previewImage' => $this->previewImage,
-                'showPreviewFilename' => $this->showPreviewFilename,
-                'pathAttribute' => 'path',
-                'baseUrlAttribute' => 'base_url',
-                'pathAttributeName' => 'path',
-                'baseUrlAttributeName' => 'base_url',
-                'messages' => [
+                'url'                   => Url::to($this->url),
+                'multiple'              => $this->multiple,
+                'sortable'              => $this->sortable,
+                'maxNumberOfFiles'      => $this->maxNumberOfFiles,
+                'maxFileSize'           => $this->maxFileSize,
+                'minFileSize'           => $this->minFileSize,
+                'acceptFileTypes'       => $this->acceptFileTypes,
+                'files'                 => $this->files,
+                'previewImage'          => $this->previewImage,
+                'showPreviewFilename'   => $this->showPreviewFilename,
+                'pathAttribute'         => 'path',
+                'baseUrlAttribute'      => 'base_url',
+                'pathAttributeName'     => 'path',
+                'baseUrlAttributeName'  => 'base_url',
+                'baseImgTitleAttribute' => 'image_title',
+                'baseImgAltAttribute'   => 'image_alt',
+                'messages'              => [
                     'maxNumberOfFiles' => Yii::t($this->messagesCategory, 'Maximum number of files exceeded'),
-                    'acceptFileTypes' => Yii::t($this->messagesCategory, 'File type not allowed'),
-                    'maxFileSize' => Yii::t($this->messagesCategory, 'File is too large'),
-                    'minFileSize' => Yii::t($this->messagesCategory, 'File is too small')
+                    'acceptFileTypes'  => Yii::t($this->messagesCategory, 'File type not allowed'),
+                    'maxFileSize'      => Yii::t($this->messagesCategory, 'File is too large'),
+                    'minFileSize'      => Yii::t($this->messagesCategory, 'File is too small')
                 ]
             ],
             $this->clientOptions
@@ -128,14 +129,13 @@ class Upload extends InputWidget
     /**
      * @return void Registers widget translations
      */
-    protected function registerMessages()
-    {
+    protected function registerMessages() {
         if (!array_key_exists($this->messagesCategory, Yii::$app->i18n->translations)) {
             Yii::$app->i18n->translations[$this->messagesCategory] = [
-                'class' => 'yii\i18n\PhpMessageSource',
+                'class'          => 'yii\i18n\PhpMessageSource',
                 'sourceLanguage' => 'en-US',
-                'basePath' => __DIR__ . '/messages',
-                'fileMap' => [
+                'basePath'       => __DIR__ . '/messages',
+                'fileMap'        => [
                     $this->messagesCategory => 'filekit/widget.php'
                 ],
             ];
@@ -145,25 +145,23 @@ class Upload extends InputWidget
     /**
      * @return string
      */
-    public function getFileInputName()
-    {
+    public function getFileInputName() {
         return sprintf('_fileinput_%s', $this->id);
     }
 
     /**
      * @return string
      */
-    public function run()
-    {
+    public function run() {
         $this->registerClientScript();
         $content = Html::beginTag('div');
         $content .= Html::hiddenInput($this->name, null, [
             'class' => 'empty-value',
-            'id' => $this->options['id']
+            'id'    => $this->options['id']
         ]);
         $content .= Html::fileInput($this->getFileInputName(), null, [
-            'name' => $this->getFileInputName(),
-            'id' => $this->getId(),
+            'name'     => $this->getFileInputName(),
+            'id'       => $this->getId(),
             'multiple' => $this->multiple
         ]);
         $content .= Html::endTag('div');
@@ -173,8 +171,7 @@ class Upload extends InputWidget
     /**
      * Registers required script for the plugin to work as jQuery File Uploader
      */
-    public function registerClientScript()
-    {
+    public function registerClientScript() {
         UploadAsset::register($this->getView());
         $options = Json::encode($this->clientOptions);
         if ($this->sortable) {
